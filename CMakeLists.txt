@@ -6,7 +6,6 @@ if (CMAKE_C_COMPILER_ID STREQUAL "GNU")
     add_compile_options(-ffunction-sections -fdata-sections)
 endif()
 
-add_subdirectory(extern/terminal)
 add_subdirectory(extern/c-logger)
 add_subdirectory(extern/clib)
 
@@ -46,4 +45,12 @@ else()
 message(WARNING "IPO is not supported: ${output}")
 endif()
 
-target_link_libraries(cmake_project_creator c_logger_static c_terminal clib)
+target_link_libraries(cmake_project_creator c_logger_static clib)
+
+set(CPACK_PROJECT_NAME ${PROJECT_NAME})
+set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
+set(CPACK_NSIS_UNINSTALL_NAME "uninstall")
+set(CPACK_NSIS_MENU_LINKS "https://github.com/NilEis/cmake-project-creator" "GitHub Repository" "cmake-create.exe" "cmake-create" "uninstall.exe" "Uninstall")
+set(CPACK_RESOURCE_FILE_LICENSE "${CMAKE_CURRENT_SOURCE_DIR}/LICENSE")
+set(CPACK_NSIS_URL_INFO_ABOUT "https://github.com/NilEis/cmake-project-creator")
+include(CPack)
