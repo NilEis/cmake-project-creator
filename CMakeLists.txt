@@ -47,6 +47,8 @@ endif()
 
 target_link_libraries(cmake_project_creator c_logger_static clib)
 
+install(TARGETS cmake_project_creator CONFIGURATIONS Release RUNTIME DESTINATION .)
+
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
 set(CPACK_NSIS_UNINSTALL_NAME "uninstall")
