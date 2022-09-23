@@ -1,0 +1,16 @@
+#ifndef TEMPLATES_H
+#define TEMPLATES_H
+
+#define CMAKELISTS_TXT "@CMAKELISTS_TXT@"
+const char cmakelists_txt_template[] = CMAKELISTS_TXT;
+#undef CMAKELISTS_TXT
+
+#define MAIN_C "@MAIN_C@"
+const char main_c_template[] = MAIN_C;
+#undef MAIN_C
+
+#define GITIGNORE "@GITIGNORE@"
+const char gitignore_template[] = GITIGNORE;
+#undef GITIGNORE
+
+#endif // TEMPLATES_H
