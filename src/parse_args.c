@@ -19,6 +19,7 @@ typedef enum
 static int arg_quiet = 0;
 static int arg_lang = LANG_C;
 static int arg_lib = 0;
+static int arg_git = 0;
 
 char *LANG_STR[] = {"C", "CXX", "Fortran"};
 
@@ -38,6 +39,7 @@ void get_options(int *argc, char ***argv, args_t *args)
             {"fortran", no_argument, &arg_lang, LANG_FORTRAN},
             {"help", no_argument, NULL, 'h'},
             {"info", no_argument, NULL, 'i'},
+            {"git", no_argument, &arg_git, 1},
             {NULL, no_argument, NULL, 0}};
         int option_index = 0;
         c = getopt_long(*argc, *argv, "qvn:lhi", long_options, &option_index);
@@ -87,5 +89,6 @@ void get_options(int *argc, char ***argv, args_t *args)
     }
     c_logger_set_level((!arg_quiet) * arg_log_level);
     args->project_language = LANG_STR[arg_lang];
+    args->git = arg_git;
     args->lib = arg_lib;
 }

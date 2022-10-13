@@ -6,6 +6,7 @@ typedef struct
     char project_name[64];
     char *project_language;
     int name_set;
+    int git;
     int lib;
 } args_t;
 
