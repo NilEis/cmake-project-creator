@@ -9,6 +9,8 @@ endif()
 
 target_include_directories(%s PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/include/)
 
+%s
+
 include(CheckIPOSupported)
 
 if (CMAKE_C_COMPILER_ID STREQUAL "GNU")

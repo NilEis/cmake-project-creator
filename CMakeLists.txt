@@ -8,6 +8,9 @@ endif()
 
 add_subdirectory(extern/c-logger)
 add_subdirectory(extern/clib)
+if (NOT TARGET c_terminal)
+    add_subdirectory(extern/terminal)
+endif()
 
 add_executable(cmake_project_creator src/main.c src/parse_args.c)
 
